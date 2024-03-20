@@ -9,6 +9,7 @@
   height: 282px;
   border-radius: 10px 10px 0 0;
 }
+
 .card__content {
   display: flex;
   align-items: center;
@@ -28,7 +29,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
@@ -42,23 +43,10 @@
   width: 21px;
   height: 18px;
   border: none;
+  padding: 15px;
 }
 
 .card__like-button:hover {
-  opacity: 60%;
-}
-
-.cards {
-  margin-top: 40px;
-}
-
-.cards__list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  margin: 0;
-  padding: 0;
-  max-width: 880px;
-  width: 100%;
+  background: #00000080;
+  cursor: pointer;
 }
