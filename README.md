@@ -17,4 +17,4 @@ A webpage of images and profile for Jacques Cousteau. i made this using grid and
 
 Link to page - https://github.com/Will00lawrence/se_project_aroundtheus
 
-Link to video -
+Link to video -https://youtu.be/kMQi5bJmhbc
