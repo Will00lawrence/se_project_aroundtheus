@@ -19,6 +19,7 @@
   width: 24px;
   grid-area: button;
   border: 1px solid #ffffff;
+  margin-top: 17px;
 }
 
 .profile__edit-button:hover {
@@ -62,12 +63,13 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   padding-right: 15px;
+  padding-top: 7px;
 }
 
 .profile__image {
@@ -95,8 +97,7 @@
   .profile__description {
     width: 100%;
     text-align: center;
-    padding-top: 14px;
-    padding-bottom: 36px;
+    padding: 14px 0 36px;
     font-size: 14px;
     line-height: 17px;
   }
@@ -119,5 +120,6 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    margin: 0;
   }
 }
