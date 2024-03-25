@@ -5,6 +5,7 @@
   max-width: 880px;
 }
 
+/*grid design for profile*/
 .profile__info {
   display: grid;
   grid-template-areas:
@@ -66,6 +67,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding-right: 15px;
 }
 
 .profile__image {
@@ -77,6 +79,7 @@
   margin-right: 24px;
 }
 
+/*to make page responsive*/
 @media screen and (max-width: 1219px) {
   .profile {
     flex-direction: column;

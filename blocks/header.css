@@ -1,11 +1,13 @@
 .header {
   margin-top: 45px;
-  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 .header__logo {
   padding-bottom: 41px;
 }
+
+/*to make page responsive*/
 @media screen and (max-width: 1219px) {
   .header {
     margin-top: 28px;
@@ -16,5 +18,6 @@
     width: 126px;
     height: 24px;
     padding-left: 27px;
+    padding-bottom: 32px;
   }
 }
