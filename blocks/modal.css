@@ -18,7 +18,7 @@
 .modal__container {
   background: #fff;
   border-radius: 10px;
-  padding: 36px;
+  padding: 34px;
   position: relative;
   margin: auto;
   max-width: 430px;
@@ -57,7 +57,7 @@
   line-height: 29.05px;
   text-align: left;
   color: rgba(0, 0, 0, 1);
-  padding-bottom: 54px;
+  padding-bottom: 49px;
   margin: 0;
 }
 
@@ -83,7 +83,7 @@
 .modal__input {
   width: 358px;
   height: 27.26px;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
   border: 1px solid rgba(0, 0, 0, 1);
   font-family: Inter;
   font-size: 14px;
