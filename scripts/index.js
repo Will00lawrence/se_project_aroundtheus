@@ -27,13 +27,8 @@ const initialCards = [
 
 /*elements*/
 
-const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileCloseButton = profileEditModal.querySelector(
-  "#profile-close-button"
-);
 const addCardModal = document.querySelector("#add-card-modal");
-const addCardCloseButton = addCardModal.querySelector("#add-card-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
@@ -41,10 +36,16 @@ const addCardForm = addCardModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+//buttons
+const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
+const profileCloseButton = profileEditModal.querySelector(
+  "#profile-close-button"
+);
+const addCardCloseButton = addCardModal.querySelector("#add-card-close-button");
 
 /*form data*/
-
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
@@ -66,15 +67,21 @@ function openModal(profileEditModal) {
   profileEditModal.classList.add("modal_opened");
 }
 
-function renderCard(cardData) {
+function renderCard(cardData, cardList) {
   const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  cardList.prepend(cardElement);
 }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
@@ -93,12 +100,7 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-
-  const cardElement = getCardElement({
-    name,
-    link,
-  });
-  cardListEl.prepend(cardElement);
+  renderCard({ name, link }, cardListEl);
   closeAddCardModal();
 }
 

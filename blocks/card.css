@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  position: relative;
 }
 
 .card__image {
@@ -37,14 +38,27 @@
 }
 
 .card__like-button {
-  background: transparent url(../images/like.svg) center no-repeat;
+  background: transparent url("../images/like.svg") center no-repeat;
   width: 21px;
   height: 18px;
   border: none;
   padding: 15px;
 }
 
+.card__like-button_active {
+  background-image: url("../images/like-active.svg");
+}
+
 .card__like-button:hover {
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.card__delete-button {
+  background: transparent url("../images/Trash.svg") center no-repeat;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
 }
