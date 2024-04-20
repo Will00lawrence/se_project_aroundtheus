@@ -95,6 +95,15 @@
   padding: 0px;
 }
 
+.modal__container-image {
+  background: transparent;
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  display: flex;
+}
+
 @media screen and (max-width: 630px) {
   .modal__container {
     max-width: 282px;
