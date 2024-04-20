@@ -50,7 +50,8 @@
 }
 
 .card__like-button:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.6);
+
   cursor: pointer;
 }
 
@@ -62,4 +63,9 @@
   top: 18px;
   right: 15px;
   border: 0;
+}
+
+.card__delete-button:hover {
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }

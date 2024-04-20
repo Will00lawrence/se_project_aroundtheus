@@ -7,12 +7,18 @@
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0 19px;
-  /*display: flex;*/
-  display: none;
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .modal__container {
@@ -97,11 +103,28 @@
 
 .modal__container-image {
   background: transparent;
-  max-width: 75vw;
-  max-height: 75vh;
   width: auto;
   height: auto;
   display: flex;
+  padding: 0;
+  max-width: 75vh;
+  max-height: 75vh;
+}
+
+/*.modal__image {
+  max-width: 75vw;
+  max-height: 75vh;
+}*/
+
+.modal__image-label {
+  position: absolute;
+  bottom: -34px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
 }
 
 @media screen and (max-width: 630px) {
