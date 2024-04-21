@@ -11,6 +11,10 @@
   border-radius: 10px 10px 0 0;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 /*builds and styles white area beneath picture*/
 .card__content {
   display: flex;
@@ -66,6 +70,6 @@
 }
 
 .card__delete-button:hover {
-  background: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
 }
