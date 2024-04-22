@@ -124,18 +124,16 @@ profileEditForm.addEventListener("submit", handleEditProfileSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 //profile edit
+function fillProfileForm(profileEditForm) {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+}
 
-profileEditButton.addEventListener("click", () => {
-  function fillProfileForm(profileEditForm) {
-    profileTitleInput.value = profileTitle.textContent;
-    profileDescriptionInput.value = profileDescription.textContent;
-  }
-
-  function openEditProfileModal(profileEditModal) {
-    fillProfileForm(profileEditForm);
-    openModal(profileEditModal);
-  }
-});
+function openEditProfileModal(profileEditModal) {
+  fillProfileForm(profileEditForm);
+  openModal(profileEditModal);
+}
+profileEditButton.addEventListener("click", openEditProfileModal);
 profileCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
