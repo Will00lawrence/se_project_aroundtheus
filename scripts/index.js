@@ -116,6 +116,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
+  addCardForm.reset();
 }
 
 /*Event Listeners*/
@@ -123,10 +124,17 @@ profileEditForm.addEventListener("submit", handleEditProfileSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 //profile edit
+
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
+  function fillProfileForm(profileEditForm) {
+    profileTitleInput.value = profileTitle.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
+  }
+
+  function openEditProfileModal(profileEditModal) {
+    fillProfileForm(profileEditForm);
+    openModal(profileEditModal);
+  }
 });
 profileCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
