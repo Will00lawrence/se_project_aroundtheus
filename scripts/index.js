@@ -124,12 +124,12 @@ profileEditForm.addEventListener("submit", handleEditProfileSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 //profile edit
-function fillProfileForm(profileEditForm) {
+function fillProfileForm() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 }
 
-function openEditProfileModal(profileEditModal) {
+function openEditProfileModal() {
   fillProfileForm(profileEditForm);
   openModal(profileEditModal);
 }
