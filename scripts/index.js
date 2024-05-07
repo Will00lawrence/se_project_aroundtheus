@@ -39,6 +39,8 @@ const cardTemplate =
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageElement = document.querySelector(".modal__image");
 const previewImageLabel = document.querySelector(".modal__image-label");
+const modalOverlay = document.querySelector(".modal");
+
 //buttons
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -147,3 +149,17 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 previewImageCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closeModal(profileEditModal);
+    closeModal(previewImageModal);
+    closeModal(addCardModal);
+  }
+});
+
+modalOverlay.addEventListener("click", function () {
+  closeModal(previewImageModal);
+  closeModal(profileEditModal);
+  closeModal(addCardModal);
+});
