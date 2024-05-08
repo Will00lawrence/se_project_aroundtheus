@@ -144,20 +144,24 @@ function openEditProfileModal() {
   openModal(profileEditModal);
 }
 profileEditButton.addEventListener("click", openEditProfileModal);
-profileCloseButton.addEventListener("click", () =>
-  closeModal(profileEditModal)
-);
 
 //add new card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardCloseButton.addEventListener("click", () => closeModal(addCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
-//previewimage
-previewImageCloseButton.addEventListener("click", () =>
-  closeModal(previewImageModal)
-);
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+    if (evt.target.classList.contains("modal__close")) {
+      closeModal(modal);
+    }
+  });
+});
 
 //modal close with overlay
 function closeModalOverlay(event) {
