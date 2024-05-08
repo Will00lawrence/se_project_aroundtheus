@@ -39,8 +39,8 @@ const cardTemplate =
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageElement = document.querySelector(".modal__image");
 const previewImageLabel = document.querySelector(".modal__image-label");
+const modalContainer = document.querySelector(".modal__container");
 const modalOverlay = document.querySelector(".modal");
-
 //buttons
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -158,8 +158,26 @@ document.addEventListener("keydown", function (evt) {
   }
 });
 
-modalOverlay.addEventListener("click", function () {
-  closeModal(previewImageModal);
-  closeModal(profileEditModal);
-  closeModal(addCardModal);
+function closeModalOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closeModal(event.currentTarget);
+  }
+}
+
+profileEditModal.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.currentTarget);
+  }
+});
+
+addCardModal.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.currentTarget);
+  }
+});
+
+previewImageModal.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.currentTarget);
+  }
 });
