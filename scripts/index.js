@@ -62,7 +62,6 @@ const cardUrlInput = addCardForm.querySelector("#card-url-input");
 
 /*functions*/
 function handleEscPress(event) {
-  const openedModal = document.querySelector(".modal_opened");
   if (event.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
