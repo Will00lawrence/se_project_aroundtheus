@@ -169,7 +169,3 @@ function closeModalOverlay(event) {
     closeModal(event.currentTarget);
   }
 }
-
-[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
-  modal.addEventListener("mousedown", closeModalOverlay);
-});
