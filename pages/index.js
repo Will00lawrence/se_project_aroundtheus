@@ -1,3 +1,7 @@
+import Card from "../components/Card.js";
+
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -40,7 +44,7 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageElement = document.querySelector(".modal__image");
 const previewImageLabel = document.querySelector(".modal__image-label");
 const modalContainer = document.querySelector(".modal__container");
-
+const cardImageEl = document.querySelector(".card__image");
 //buttons
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -79,38 +83,45 @@ function openModal(modal) {
 }
 
 function renderCard(cardData, cardList) {
-  const cardElement = getCardElement(cardData);
-  cardList.prepend(cardElement);
+  //const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  cardList.prepend(card.getView());
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
-
-  cardImageEl.addEventListener("click", () => {
-    previewImageElement.src = cardData.link;
-    previewImageElement.alt = cardData.name;
-    previewImageLabel.textContent = cardData.name;
-    openModal(previewImageModal);
-  });
-
-  return cardElement;
+function handleImageClick(cardData) {
+  previewImageElement.setAttribute("src", cardData.link);
+  previewImageElement.setAttribute("alt", cardData.name);
+  previewImageLabel.textContent = cardData.name;
+  openModal(previewImageModal);
 }
+
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   const deleteButton = cardElement.querySelector(".card__delete-button");
+
+// function handleLikeButton() {
+//   likeButton.classList.toggle("card__like-button_active");
+// }
+
+// likeButton.addEventListener("click", handleLikeButton);
+
+// function handleDeleteButton() {
+//   cardElement.remove();
+// }
+
+// cardImageEl.addEventListener("click", () => {
+//   previewImageElement.src = cardData.link;
+//   previewImageElement.alt = cardData.name;
+//   previewImageLabel.textContent = cardData.name;
+//   openModal(previewImageModal);
+// });
+
+// deleteButton.addEventListener("click", handleDeleteButton);
+
+//   return cardElement;
+// }
 
 /*Event Handlers*/
 function handleEditProfileSubmit(e) {
@@ -163,9 +174,34 @@ modals.forEach((modal) => {
   });
 });
 
-//modal close with overlay
-function closeModalOverlay(event) {
-  if (event.target === event.currentTarget) {
-    closeModal(event.currentTarget);
-  }
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+  modalButton: ".modal__button",
+};
+
+function enableValidation(options) {
+  const formEls = [...document.querySelectorAll(options.formSelector)];
+  console.log(formEls);
+  formEls.forEach((formEl) => {
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    setEventListeners(formEl, options);
+  });
 }
+
+enableValidation(FormValidator);
+
+//modal close with overlay
+
+// function closeModalOverlay(event) {
+//   if (event.target === event.currentTarget) {
+//     closeModal(event.currentTarget);
+//   }
+// }

@@ -66,7 +66,7 @@ function enableValidation(options) {
   });
 }
 
-const config = {
+const cvalidationSettings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
