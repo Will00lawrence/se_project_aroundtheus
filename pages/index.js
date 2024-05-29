@@ -1,4 +1,4 @@
-import Card from "../components/Card.js";
+import Card from "../components/card.js";
 
 import FormValidator from "../components/FormValidator.js";
 
@@ -184,19 +184,11 @@ const settings = {
   modalButton: ".modal__button",
 };
 
-function enableValidation(options) {
-  const formEls = [...document.querySelectorAll(options.formSelector)];
-  console.log(formEls);
-  formEls.forEach((formEl) => {
-    formEl.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-
-    setEventListeners(formEl, options);
-  });
-}
-
-enableValidation(FormValidator);
+const formEls = [...document.querySelectorAll(settings.formSelector)];
+formEls.forEach((formEl) => {
+  const formValidator = new FormValidator(settings, formEl);
+  formValidator.enableValidation();
+});
 
 //modal close with overlay
 
