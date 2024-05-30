@@ -110,7 +110,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
   addCardForm.reset();
-  toggleButtonState();
+  addCardValidator.toggleButtonState();
 }
 
 /*Event Listeners*/
@@ -156,8 +156,20 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const formEls = [...document.querySelectorAll(settings.formSelector)];
-formEls.forEach((formEl) => {
-  const formValidator = new FormValidator(settings, formEl);
-  formValidator.enableValidation();
-});
+// const formEls = [...document.querySelectorAll(settings.formSelector)];
+// formEls.forEach((formEl) => {
+//   const formValidator = new FormValidator(settings, formEl);
+//   formValidator.enableValidation();
+// });
+
+const addCardValidator = new FormValidator(
+  settings,
+  addCardModal.querySelector(".modal__form")
+);
+addCardValidator.enableValidation(); // starts listening to events with <input /> elements for the 'add card' form.
+
+const editProfileValidator = new FormValidator(
+  settings,
+  profileEditModal.querySelector(".modal__form")
+);
+editProfileValidator.enableValidation(); // starts listening to events with <input /> elements for the 'edit profile' form.
