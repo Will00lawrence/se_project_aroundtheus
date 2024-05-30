@@ -95,34 +95,6 @@ function handleImageClick(cardData) {
   openModal(previewImageModal);
 }
 
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-
-//   const likeButton = cardElement.querySelector(".card__like-button");
-//   const deleteButton = cardElement.querySelector(".card__delete-button");
-
-// function handleLikeButton() {
-//   likeButton.classList.toggle("card__like-button_active");
-// }
-
-// likeButton.addEventListener("click", handleLikeButton);
-
-// function handleDeleteButton() {
-//   cardElement.remove();
-// }
-
-// cardImageEl.addEventListener("click", () => {
-//   previewImageElement.src = cardData.link;
-//   previewImageElement.alt = cardData.name;
-//   previewImageLabel.textContent = cardData.name;
-//   openModal(previewImageModal);
-// });
-
-// deleteButton.addEventListener("click", handleDeleteButton);
-
-//   return cardElement;
-// }
-
 /*Event Handlers*/
 function handleEditProfileSubmit(e) {
   e.preventDefault();
@@ -181,7 +153,6 @@ const settings = {
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
-  modalButton: ".modal__button",
 };
 
 const formEls = [...document.querySelectorAll(settings.formSelector)];
@@ -189,11 +160,3 @@ formEls.forEach((formEl) => {
   const formValidator = new FormValidator(settings, formEl);
   formValidator.enableValidation();
 });
-
-//modal close with overlay
-
-// function closeModalOverlay(event) {
-//   if (event.target === event.currentTarget) {
-//     closeModal(event.currentTarget);
-//   }
-// }

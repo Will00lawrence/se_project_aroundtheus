@@ -41,18 +41,6 @@ export default class FormValidator {
     return !inputList.every((input) => input.validity.valid);
   }
 
-  //   _disableButton() {
-  //     const submitButton = this._form.querySelector(this._submitButtonSelector);
-  //     submitButton.classList.add(this._inactiveButtonClass);
-  //     submitButton.disabled = true;
-  //   }
-
-  //   _enableButton() {
-  //     const submitButton = this._form.querySelector(this._submitButtonSelector);
-  //     submitButton.classList.remove(this._inactiveButtonClass);
-  //     submitButton.disabled = false;
-  //   }
-
   _disableButton() {
     console.log("submitButton:", this._submitButton);
     console.log("this._inactiveButtonClass:", this._inactiveButtonClass);
