@@ -91,6 +91,11 @@
 .modal__button_disabled {
   color: rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  cursor: default;
+}
+
+.modal__button_disabled:hover {
+  opacity: 1;
 }
 
 .modal__input {

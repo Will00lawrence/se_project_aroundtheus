@@ -110,6 +110,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
   addCardForm.reset();
+  toggleButtonState();
 }
 
 /*Event Listeners*/
