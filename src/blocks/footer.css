@@ -1,0 +1,28 @@
+.footer {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #545454;
+  padding-top: 67px;
+  padding-bottom: 60px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.footer__content {
+  margin: 0;
+}
+
+/*to make page responsive*/
+@media screen and (max-width: 1219px) {
+  .footer {
+    font-size: 14px;
+    line-height: 17px;
+    padding-left: 19px;
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+}
