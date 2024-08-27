@@ -2,9 +2,9 @@ import Modal from "./Modal.js";
 
 class ModalWithImage extends Modal {
   constructor(modalSelector) {
-    super(modalSelector);
-    this._label = this._modal.querySelector(".modal__image-label");
-    this._image = this._modal.querySelector(".modal__image");
+    super({ modalSelector });
+    this._label = this._modalElement.querySelector(".modal__image-label");
+    this._image = this._modalElement.querySelector(".modal__image");
   }
 
   open(name, link) {

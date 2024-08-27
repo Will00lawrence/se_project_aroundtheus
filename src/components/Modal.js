@@ -2,13 +2,14 @@ export default class Modal {
   constructor({ modalSelector }) {
     this._modalElement = document.querySelector(modalSelector);
   }
+
   open() {
-    this._modalElement.classList.add(".modal_opened");
+    this._modalElement.classList.add("modal_opened");
     document.addEventListener("keyup", this._handleEscKey);
   }
 
   close() {
-    this._modalElement.classList.remove(".modal_opened");
+    this._modalElement.classList.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscKey);
   }
 
@@ -19,6 +20,8 @@ export default class Modal {
   }
 
   setEventListeners() {
+    console.log(12312313);
+    console.log(this._modalElement);
     const closeButton = this._modalElement.querySelector(".modal__close");
     closeButton.addEventListener("click", () => {
       this.close();

@@ -7,18 +7,19 @@ class Section {
 
     // in constructor, just assign stuff to this object
     this._items = items;
+    this._renderer = renderer;
+    this._sectionSelector = sectionSelector;
 
     // and select the section element
   }
 
-  // doesn't take an argument
   renderItems() {
-    // iterate through items array
-    // calling renderer on each item
+    this._items.forEach((item) => this._renderer(item));
   }
 
-  addItem() {
-    // adds an item to the DOM
+  // adds an item to the DOM
+  addItem(item) {
+    this._sectionSelector.prepend(item);
   }
 }
 
