@@ -5,23 +5,21 @@ export default class Modal {
 
   open() {
     this._modalElement.classList.add("modal_opened");
-    document.addEventListener("keyup", this._handleEscKey);
+    document.addEventListener("keydown", this._handleEscKey);
   }
 
   close() {
     this._modalElement.classList.remove("modal_opened");
-    document.removeEventListener("keyup", this._handleEscKey);
+    document.removeEventListener("keydown", this._handleEscKey);
   }
 
-  _handleEscClose(evt) {
+  _handleEscKey = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
 
   setEventListeners() {
-    console.log(12312313);
-    console.log(this._modalElement);
     const closeButton = this._modalElement.querySelector(".modal__close");
     closeButton.addEventListener("click", () => {
       this.close();

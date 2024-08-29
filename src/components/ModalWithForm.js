@@ -10,7 +10,7 @@ class ModalWithForm extends Modal {
     this._button = this._form.querySelector(".modal__button");
   }
 
-  getInputValues() {
+  _getInputValues() {
     const inputList = Array.from(this._modal.querySelectorAll(".modal__input"));
     const data = {};
     inputList.forEach((input) => {
@@ -28,12 +28,12 @@ class ModalWithForm extends Modal {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._formSubmitHandler(this._getInputValues());
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 
   close() {
-    this._modalForm.reset();
+    this._form.reset();
     super.close();
   }
 }
