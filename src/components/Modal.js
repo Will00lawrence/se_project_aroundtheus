@@ -1,6 +1,7 @@
 export default class Modal {
   constructor({ modalSelector }) {
     this._modalElement = document.querySelector(modalSelector);
+    this._closeButton = this._modalElement.querySelector(".modal__close");
   }
 
   open() {
@@ -13,6 +14,12 @@ export default class Modal {
     document.removeEventListener("keydown", this._handleEscKey);
   }
 
+  _clickToClose(evt) {
+    if (evt.target === this._closeButton || evt.target === this._modalElement) {
+      this.close();
+    }
+  }
+
   _handleEscKey = (evt) => {
     if (evt.key === "Escape") {
       this.close();
@@ -20,9 +27,8 @@ export default class Modal {
   };
 
   setEventListeners() {
-    const closeButton = this._modalElement.querySelector(".modal__close");
-    closeButton.addEventListener("click", () => {
-      this.close();
+    this._modalElement.addEventListener("click", (evt) => {
+      this._clickToClose(evt);
     });
   }
 }

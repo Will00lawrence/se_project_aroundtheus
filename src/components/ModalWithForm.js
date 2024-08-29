@@ -21,7 +21,6 @@ class ModalWithForm extends Modal {
 
   open() {
     super.open();
-    this._button.textContent = "Save";
   }
 
   setEventListeners() {
@@ -33,7 +32,6 @@ class ModalWithForm extends Modal {
   }
 
   close() {
-    this._form.reset();
     super.close();
   }
 }
