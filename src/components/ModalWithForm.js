@@ -8,15 +8,23 @@ class ModalWithForm extends Modal {
     this._form = this._modal.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
     this._button = this._form.querySelector(".modal__button");
+    this._inputList = Array.from(this._modal.querySelectorAll(".modal__input"));
   }
 
   _getInputValues() {
-    const inputList = Array.from(this._modal.querySelectorAll(".modal__input"));
     const data = {};
-    inputList.forEach((input) => {
+
+    this._inputList.forEach((input) => {
       data[input.name] = input.value;
     });
+
     return data;
+  }
+
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
   }
 
   open() {
@@ -27,7 +35,10 @@ class ModalWithForm extends Modal {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
+
+      const data = this._getInputValues();
+
+      this._handleFormSubmit(data);
     });
   }
 
