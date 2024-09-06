@@ -10,6 +10,7 @@ class ModalWithImage extends Modal {
   open(name, link) {
     this._label.textContent = name;
     this._image.src = link;
+    this._image.alt = name;
     super.open();
   }
 }

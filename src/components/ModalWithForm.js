@@ -13,11 +13,9 @@ class ModalWithForm extends Modal {
 
   _getInputValues() {
     const data = {};
-
     this._inputList.forEach((input) => {
       data[input.name] = input.value;
     });
-
     return data;
   }
 
@@ -35,9 +33,7 @@ class ModalWithForm extends Modal {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-
       const data = this._getInputValues();
-
       this._handleFormSubmit(data);
     });
   }

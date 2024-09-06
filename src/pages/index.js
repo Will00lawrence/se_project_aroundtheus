@@ -84,7 +84,8 @@ function handleAddCardFormSubmit({ name, link }) {
 
   addCardModal.close();
   addCardForm.reset();
-  addCardValidator.toggleButtonState();
+  // addCardValidator.toggleButtonState();
+  addCardValidator.disableButton();
 }
 
 const userInfo = new UserInfo({
@@ -103,7 +104,9 @@ profileEditButton.addEventListener("click", () => {
 });
 
 //add new card
-addNewCardButton.addEventListener("click", () => addCardModal.open());
+addNewCardButton.addEventListener("click", () => {
+  addCardModal.open();
+});
 
 const formEls = [...document.querySelectorAll(settings.formSelector)];
 formEls.forEach((formEl) => {
@@ -113,7 +116,7 @@ formEls.forEach((formEl) => {
 
 const addCardValidator = new FormValidator(
   settings,
-  document.querySelector(".modal__form")
+  addCardModalNode.querySelector(".modal__form")
 );
 addCardValidator.enableValidation();
 
