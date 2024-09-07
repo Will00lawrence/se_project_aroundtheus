@@ -25,10 +25,6 @@ class ModalWithForm extends Modal {
     });
   }
 
-  open() {
-    super.open();
-  }
-
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
@@ -36,10 +32,6 @@ class ModalWithForm extends Modal {
       const data = this._getInputValues();
       this._handleFormSubmit(data);
     });
-  }
-
-  close() {
-    super.close();
   }
 }
 

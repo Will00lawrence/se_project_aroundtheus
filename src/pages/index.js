@@ -71,10 +71,6 @@ function handleImageClick(cardData) {
 
 /*Event Handlers*/
 function handleEditProfileSubmit(data) {
-  userInfo.getUserInfo({
-    "profile-title": data["profile-title"],
-    "profile-description": data["profile-description"],
-  });
   userInfo.setUserInfo(data["profile-title"], data["profile-description"]);
   addEditModal.close();
 }
