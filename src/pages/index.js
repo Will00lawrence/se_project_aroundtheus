@@ -104,22 +104,10 @@ addNewCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
 
-const formEls = [...document.querySelectorAll(settings.formSelector)];
-formEls.forEach((formEl) => {
-  const formValidator = new FormValidator(settings, formEl);
-  formValidator.enableValidation();
-});
-
-const addCardValidator = new FormValidator(
-  settings,
-  addCardModalNode.querySelector(".modal__form")
-);
+const addCardValidator = new FormValidator(settings, addCardForm);
 addCardValidator.enableValidation();
 
-const editProfileValidator = new FormValidator(
-  settings,
-  profileEditModal.querySelector(".modal__form")
-);
+const editProfileValidator = new FormValidator(settings, profileEditForm);
 editProfileValidator.enableValidation();
 
 const cardListSection = new Section(
